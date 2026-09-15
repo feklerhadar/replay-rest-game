@@ -43,6 +43,16 @@ function nextId(items) {
   return items.reduce((highest, item) => Math.max(highest, item.id), 0) + 1;
 }
 
+function validateFilterQueries(req, res, next) {
+  for (const [name, label] of [['maxPrice', 'maxPrice'], ['minAmount', 'minAmount']]) {
+    if (req.query[name] === undefined) continue;
+    if (typeof req.query[name] !== 'string' || !/^\d+(\.\d+)?$/.test(req.query[name])) {
+      return error(res, 400, `${label} must be a non-negative number.`);
+    }
+  }
+  return next();
+}
+
 function applyListingFilters(items, query) {
   let result = items.filter((listing) => (!query.sport || listing.sport === query.sport)
     && (!query.condition || listing.condition === query.condition)
@@ -65,6 +75,7 @@ function applyOfferFilters(items, query) {
 
 router.get('/game/stages', (req, res) => res.json({ stages: publicStages }));
 router.use(validateGameAttempt);
+router.use(validateFilterQueries);
 
 router.get('/listings', (req, res) => res.json(applyListingFilters([...listings], req.query)));
 router.get('/listings/:id/offers', (req, res) => {

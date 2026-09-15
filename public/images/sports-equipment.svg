@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224 144" role="img" aria-labelledby="title desc">
+  <title id="title">Sports equipment illustration</title>
+  <desc id="desc">A basketball, tennis racket, and bicycle drawn with simple colored lines.</desc>
+  <rect width="224" height="144" rx="18" fill="#f0f4e8"/>
+  <circle cx="48" cy="52" r="25" fill="#f06e52"/>
+  <path d="M24 52h48M48 27c7 9 10 17 10 25s-3 16-10 25M30 34c8 7 13 13 18 18 5 5 11 11 18 18" fill="none" stroke="#fff0ed" stroke-width="3" stroke-linecap="round"/>
+  <path d="M123 28l27 76M150 28l-27 76M126 45h22M119 104h31" fill="none" stroke="#2c6e8f" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="136.5" cy="67" rx="24" ry="35" fill="none" stroke="#2c6e8f" stroke-width="4"/>
+  <circle cx="182" cy="99" r="20" fill="none" stroke="#7a9d1b" stroke-width="4"/>
+  <circle cx="218" cy="99" r="20" fill="none" stroke="#7a9d1b" stroke-width="4"/>
+  <path d="M182 99l17-27 19 27h-36l17-27 19 27M199 72h13" fill="none" stroke="#7a9d1b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
