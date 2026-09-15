@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="RePlay HTTP and REST learning game for second-hand sports equipment.">
+  <title>RePlay | Buy. Sell. Play Again.</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script defer src="/js/game.js"></script>
+</head>
+<body class="game-page">
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="RePlay home">
+        <span class="brand-mark">R</span>
+        <span><strong>REPLAY</strong><small>Buy. Sell. Play Again.</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Game navigation">
+        <a class="nav-link is-active" href="/">Play</a>
+        <a class="nav-link" href="/schemas">Schemas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell game-shell">
+    <section class="progress-area" aria-labelledby="progress-heading">
+      <div class="eyebrow">REST training ground</div>
+      <div class="progress-heading-row">
+        <h1 id="progress-heading">Build the right request.</h1>
+        <button class="button button-quiet" id="reset-progress" type="button">Reset progress</button>
+      </div>
+      <div class="progress-meta">
+        <span id="stage-count">Stage 1 of 12</span>
+        <span><b id="score">0</b> points</span>
+        <span><b id="attempts">0</b> attempts</span>
+      </div>
+      <div class="progress-track" aria-label="Game progress"><span id="progress-bar"></span></div>
+    </section>
+
+    <section class="challenge-card panel" aria-labelledby="challenge-title">
+      <div class="challenge-copy">
+        <div class="eyebrow">Current challenge</div>
+        <h2 id="challenge-title">Loading today’s challenge...</h2>
+        <p id="challenge-scenario" class="scenario">Fetching the public stage descriptions.</p>
+      </div>
+      <button class="button button-outline" id="hint-button" type="button" aria-expanded="false" aria-controls="hint-text">Show hint</button>
+      <p id="hint-text" class="hint-text" hidden></p>
+    </section>
+
+    <div class="workspace-grid">
+      <section class="panel request-builder" aria-labelledby="builder-title">
+        <div class="panel-heading">
+          <div><div class="eyebrow">Request builder</div><h2 id="builder-title">Shape your call</h2></div>
+          <span class="method-badge" id="method-badge">GET</span>
+        </div>
+        <form id="request-form" novalidate>
+          <div class="field-row method-path-row">
+            <label class="field method-field">HTTP method
+              <select id="http-method" name="method">
+                <option>GET</option><option>POST</option><option>PUT</option><option>PATCH</option><option>DELETE</option>
+              </select>
+            </label>
+            <label class="field path-field">Request path
+              <input id="request-path" name="path" type="text" placeholder="/api/listings/:id" autocomplete="off" spellcheck="false">
+            </label>
+          </div>
+
+          <fieldset class="parameter-section">
+            <legend>Route parameters <span>Replace placeholders like <code>:id</code></span></legend>
+            <div id="route-params" class="parameter-list"></div>
+            <button class="button button-small button-outline" type="button" data-add-parameter="route">+ Add route parameter</button>
+          </fieldset>
+
+          <fieldset class="parameter-section">
+            <legend>Query parameters <span>Added to the request URL</span></legend>
+            <div id="query-params" class="parameter-list"></div>
+            <button class="button button-small button-outline" type="button" data-add-parameter="query">+ Add query parameter</button>
+          </fieldset>
+
+          <label class="field">Request body JSON <span class="field-note">Optional</span>
+            <textarea id="request-body" rows="7" placeholder="{\n  &quot;condition&quot;: &quot;like-new&quot;\n}" spellcheck="false"></textarea>
+          </label>
+
+          <div class="request-preview-wrap">
+            <div class="section-label">Live HTTP request preview</div>
+            <pre id="request-preview" class="request-preview" aria-live="polite">GET /</pre>
+          </div>
+          <p id="input-error" class="form-message error-message" role="alert" hidden></p>
+          <button class="button button-primary send-button" type="submit">Send request <span aria-hidden="true">→</span></button>
+        </form>
+      </section>
+
+      <section class="panel response-console" aria-labelledby="response-title">
+        <div class="panel-heading">
+          <div><div class="eyebrow">Response console</div><h2 id="response-title">What came back</h2></div>
+          <span id="response-status" class="status-pill status-idle">Waiting</span>
+        </div>
+        <div class="response-status-line"><strong id="response-code">—</strong><span id="response-status-text">Send a request to inspect the response.</span></div>
+        <pre id="response-content" class="response-content" aria-live="polite">Your server response will appear here.</pre>
+        <div id="game-feedback" class="game-feedback" role="status" hidden></div>
+      </section>
+    </div>
+
+    <div class="stage-navigation" aria-label="Stage navigation">
+      <button class="button button-outline" id="previous-stage" type="button">← Previous stage</button>
+      <span id="completion-note">Complete stages to unlock your score.</span>
+      <button class="button button-outline" id="next-stage" type="button">Next stage →</button>
+    </div>
+  </main>
+</body>
+</html>
