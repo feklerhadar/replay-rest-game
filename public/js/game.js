@@ -30,7 +30,7 @@
     $('#attempts').textContent = state.attempts[id] || 0;
     $('#progress-bar').style.width = `${state.completed.length / total * 100}%`;
     $('#previous-stage').disabled = state.currentIndex === 0;
-    $('#next-stage').disabled = state.currentIndex >= state.stages.length - 1;
+    $('#next-stage').disabled = state.currentIndex >= state.stages.length - 1 || !isCompleted(id);
     $('#completion-note').textContent = isCompleted(id) ? 'Completed stage: revisit it to practise again.' : 'Complete stages to unlock your score.';
   }
 
@@ -193,7 +193,12 @@
     document.querySelectorAll('[data-add-parameter]').forEach((button) => button.addEventListener('click', () => addParameter(button.dataset.addParameter)));
     $('#hint-button').addEventListener('click', () => { const hint = $('#hint-text'); const visible = !hint.hidden; hint.hidden = visible; $('#hint-button').textContent = visible ? 'Show hint' : 'Hide hint'; $('#hint-button').setAttribute('aria-expanded', String(!visible)); });
     $('#previous-stage').addEventListener('click', () => { if (state.currentIndex > 0) { state.currentIndex -= 1; saveProgress(); renderStage(); } });
-    $('#next-stage').addEventListener('click', () => { if (state.currentIndex < state.stages.length - 1) { state.currentIndex += 1; saveProgress(); renderStage(); } });
+    $('#next-stage').addEventListener('click', () => {
+      if (!isCompleted(stageId()) || state.currentIndex >= state.stages.length - 1) return;
+      state.currentIndex += 1;
+      saveProgress();
+      renderStage();
+    });
     $('#reset-progress').addEventListener('click', resetProgress);
     addParameter('route');
     loadStages();
