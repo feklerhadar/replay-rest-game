@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="RePlay public API resource schemas.">
+  <title>RePlay | Schemas</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="schemas-page">
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="RePlay home"><span class="brand-mark">R</span><span><strong>REPLAY</strong><small>Buy. Sell. Play Again.</small></span></a>
+      <nav class="main-nav" aria-label="Game navigation"><a class="nav-link" href="/">Play</a><a class="nav-link is-active" href="/schemas">Schemas</a></nav>
+    </div>
+  </header>
+  <main class="shell schemas-shell">
+    <div class="eyebrow">Public data guide</div>
+    <h1>Know the playing field.</h1>
+    <p class="intro-copy">The resource shapes available in the RePlay marketplace. Use these fields to build requests in the game.</p>
+    <div class="schema-note"><strong>Relationship:</strong> <code>offers.listingId</code> references <code>listings.id</code>.</div>
+    <div class="schema-grid">
+      <% resources.forEach((resource) => { %>
+        <article class="schema-card panel">
+          <h2><%= resource.name %></h2>
+          <div class="schema-fields">
+            <% resource.fields.forEach((field) => { %>
+              <div class="schema-field">
+                <div class="schema-field-top"><code><%= field.name %></code><span class="type-tag"><%= field.type %></span></div>
+                <p class="schema-data"><strong>Data:</strong> <%= field.data %></p>
+                <p><%= field.description %></p>
+              </div>
+            <% }) %>
+          </div>
+        </article>
+      <% }) %>
+    </div>
+    <a class="back-link" href="/">← Back to the game</a>
+  </main>
+</body>
+</html>
