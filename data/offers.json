@@ -1,0 +1,14 @@
+[
+  { "id": 1, "listingId": 1, "buyer": "Yael Shahar", "amount": 70, "status": "pending", "createdAt": "2026-09-01T10:00:00.000Z" },
+  { "id": 2, "listingId": 1, "buyer": "Amit Ron", "amount": 75, "status": "accepted", "createdAt": "2026-08-30T12:15:00.000Z" },
+  { "id": 3, "listingId": 2, "buyer": "Neta Gil", "amount": 35, "status": "rejected", "createdAt": "2026-08-26T09:20:00.000Z" },
+  { "id": 4, "listingId": 3, "buyer": "Yoni Barak", "amount": 230, "status": "pending", "createdAt": "2026-08-28T16:40:00.000Z" },
+  { "id": 5, "listingId": 4, "buyer": "Dana Shavit", "amount": 150, "status": "accepted", "createdAt": "2026-08-23T11:05:00.000Z" },
+  { "id": 6, "listingId": 5, "buyer": "Ravit Ben-David", "amount": 280, "status": "pending", "createdAt": "2026-09-03T08:35:00.000Z" },
+  { "id": 7, "listingId": 5, "buyer": "Itay Azulai", "amount": 300, "status": "pending", "createdAt": "2026-09-04T14:10:00.000Z" },
+  { "id": 8, "listingId": 6, "buyer": "Moran Erez", "amount": 1200, "status": "rejected", "createdAt": "2026-08-21T18:25:00.000Z" },
+  { "id": 9, "listingId": 8, "buyer": "Lena Fried", "amount": 90, "status": "pending", "createdAt": "2026-09-05T10:45:00.000Z" },
+  { "id": 10, "listingId": 8, "buyer": "Avi Naim", "amount": 100, "status": "accepted", "createdAt": "2026-09-05T15:30:00.000Z" },
+  { "id": 11, "listingId": 9, "buyer": "Sivan Or", "amount": 450, "status": "pending", "createdAt": "2026-09-06T13:00:00.000Z" },
+  { "id": 12, "listingId": 12, "buyer": "Ronit Peleg", "amount": 25, "status": "rejected", "createdAt": "2026-08-04T09:00:00.000Z" }
+]
