@@ -1,0 +1,13 @@
+node_modules/
+.env
+
+# Editor temporary files
+.vscode/
+*.swp
+*.swo
+*~
+
+# Operating-system temporary files
+.DS_Store
+Thumbs.db
+desktop.ini
